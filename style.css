@@ -206,6 +206,17 @@ a:hover, a:active {
   color: var(--text-dark);
 }
 
+/* Specific styling for links within article content */
+.article-detail a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.article-detail a:hover {
+  text-decoration: none;
+  color: var(--primary-hover);
+}
+
 .bouton-telecharger {
   display: flex;
   justify-content: center;
