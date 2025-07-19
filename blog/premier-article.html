@@ -1,12 +1,116 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Démineur Démoniaque - FFlorian</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Démineur Démoniaque – FFlorian</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #1a1a1a;
+      --accent: #ff304f;
+      --text: #f2f2f2;
+      --text-muted: #b3b3b3;
+      --border: #333;
+      --radius: .6rem;
+      --max-width: 820px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: auto;
+    }
+
+    /* ---------- Header ---------- */
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ---------- Article ---------- */
+    main { padding: 3rem 0; }
+    .article-detail h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .article-detail p {
+      margin: .5rem 0 1.5rem;
+      color: var(--text-muted);
+    }
+    .article-detail a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .article-detail a:hover { text-decoration: underline; }
+
+    /* ---------- Bouton télécharger ---------- */
+    .bouton-telecharger {
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    .bouton-telecharger button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: .8rem 1.4rem;
+      font-size: 1rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .bouton-telecharger button:hover {
+      background: #ff4f6a;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      font-size: .85rem;
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .nav-container {
+        flex-direction: column;
+        gap: .5rem;
+      }
+      nav a { margin: 0 .7rem; }
+    }
+  </style>
 </head>
+
 <body>
   <header class="header">
     <div class="container nav-container">
@@ -22,8 +126,13 @@
   <main class="container">
     <article class="article-detail">
       <h1>Démineur Démoniaque</h1>
-      <p>Mon jeu de démineur revisité développé en Python. Retrouvez le code source sur <a href="https://github.com/FFloorian/Demineur-Demoniaque" target="_blank">GitHub</a>. Faites attention, il est très terrifiant...</p>
-      <a href="https://github.com/FFloorian/Demineur-Demoniaque/releases/download/v0.1.1/Demineur.Demoniaque.0.1.1.exe" class="bouton-telecharger" download>
+      <p>
+        Mon jeu de démineur revisité développé en Python. Retrouvez le code source sur
+        <a href="https://github.com/FFloorian/Demineur-Demoniaque" target="_blank" rel="noopener">GitHub</a>.
+        Faites attention, il est très terrifiant…
+      </p>
+
+      <a class="bouton-telecharger" href="https://github.com/FFloorian/Demineur-Demoniaque/releases/download/v0.1.1/Demineur.Demoniaque.0.1.1.exe" download>
         <button type="button">Télécharger la version Windows (.exe)</button>
       </a>
     </article>
