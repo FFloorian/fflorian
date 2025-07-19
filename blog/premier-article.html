@@ -4,6 +4,8 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Démineur Démoniaque – FFlorian</title>
+
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -72,6 +74,25 @@
     }
     .article-detail a:hover { text-decoration: underline; }
 
+    /* ---------- Galerie d’images ---------- */
+    .gallery {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .gallery img {
+      flex: 1 1 300px;
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: transform .3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
     /* ---------- Bouton télécharger ---------- */
     .bouton-telecharger {
       display: inline-block;
@@ -102,10 +123,7 @@
 
     /* Responsive */
     @media (max-width: 600px) {
-      .nav-container {
-        flex-direction: column;
-        gap: .5rem;
-      }
+      .nav-container { flex-direction: column; gap: .5rem; }
       nav a { margin: 0 .7rem; }
     }
   </style>
@@ -131,6 +149,12 @@
         <a href="https://github.com/FFloorian/Demineur-Demoniaque" target="_blank" rel="noopener">GitHub</a>.
         Faites attention, il est très terrifiant…
       </p>
+
+      <!-- Galerie d’images -->
+      <div class="gallery">
+        <img src="screenshot1.png" alt="Capture d’écran 1 du jeu">
+        <img src="screenshot2.png" alt="Capture d’écran 2 du jeu">
+      </div>
 
       <a class="bouton-telecharger" href="https://github.com/FFloorian/Demineur-Demoniaque/releases/download/v0.1.1/Demineur.Demoniaque.0.1.1.exe" download>
         <button type="button">Télécharger la version Windows (.exe)</button>
