@@ -4,10 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FFlorian</title>
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --bg: #0a0a0a;
@@ -17,7 +14,7 @@
       --text-muted: #b3b3b3;
       --border: #333;
       --radius: .6rem;
-      --max-width: 820px;
+      --max-width: 800px;
     }
     * { box-sizing: border-box; }
     body {
@@ -33,12 +30,12 @@
       margin: auto;
     }
 
-    /* ---------- Header ---------- */
-    .header {
+    /* Header */
+    header {
       border-bottom: 1px solid var(--border);
       padding: 1rem 0;
     }
-    .nav-container {
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -56,10 +53,10 @@
     }
     nav a:hover { color: var(--accent); }
 
-    /* ---------- Hero ---------- */
+    /* Hero */
     .hero {
       text-align: center;
-      padding: 4rem 0;
+      padding: 4rem 0 2.5rem;
     }
     .hero h1 {
       font-size: 2.5rem;
@@ -71,64 +68,77 @@
       color: var(--text-muted);
     }
 
-    /* ---------- Grille d’articles ---------- */
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin: 3rem 0;
+    /* Sections */
+    .section-title {
+      font-size: 1.4rem;
+      margin: 2.5rem 0 1.2rem;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: .4rem;
     }
-    .card {
+
+    /* Liste d’articles/docs */
+    .item-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .item-list li {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.8rem 1.5rem;
+      margin-bottom: 1rem;
       transition: transform .15s, box-shadow .15s;
       position: relative;
     }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(255, 48, 79, .35);
+    .item-list li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 48, 79, .35);
     }
-    .card h2 {
-      margin: 0 0 .8rem;
-      font-size: 1.25rem;
-      color: var(--accent);
+    .item-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.4rem;
+      text-decoration: none;
+      color: var(--text);
     }
-    .card p {
-      margin: 0;
+    .item-list .meta {
+      font-size: .85rem;
       color: var(--text-muted);
     }
-    .full-link {
-      position: absolute;
-      inset: 0;
-      text-decoration: none;
-      color: inherit;
+    .item-list .tag {
+      font-size: .75rem;
+      background: var(--accent);
+      color: #fff;
+      padding: .25rem .6rem;
+      border-radius: 999px;
+      margin-left: .6rem;
     }
 
-    /* ---------- Footer ---------- */
-    .footer {
-      font-size: .85rem;
+    /* Footer */
+    footer {
       text-align: center;
-      padding: 2rem 0;
+      font-size: .85rem;
       color: var(--text-muted);
       border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 3rem;
     }
 
     /* Responsive */
     @media (max-width: 600px) {
-      .nav-container {
-        flex-direction: column;
-        gap: .5rem;
-      }
+      .nav { flex-direction: column; gap: .5rem; }
       nav a { margin: 0 .7rem; }
+      .item-list a { flex-direction: column; align-items: flex-start; }
+      .item-list .tag { margin: .4rem 0 0 0; }
     }
   </style>
 </head>
 
 <body>
-  <header class="header">
-    <div class="container nav-container">
+  <header>
+    <div class="container nav">
       <div class="logo">FFlorian</div>
       <nav>
         <a href="index.html">Accueil</a>
@@ -146,24 +156,30 @@
   </section>
 
   <main class="container">
-    <section class="articles-grid">
-      <article class="card">
-        <a href="blog/premier-article.html" class="full-link">
-          <h2>Démineur Démoniaque</h2>
-          <p>Découvrez mon jeu le Démineur Démoniaque.</p>
+    <h2 class="section-title">Derniers articles</h2>
+    <ul class="item-list">
+      <li>
+        <a href="blog/premier-article.html">
+          <span class="meta">Démineur Démoniaque</span>
+          <span class="tag">Jeu</span>
         </a>
-      </article>
-      <article class="card">
-        <a href="docs/streaming.html" class="full-link">
-          <h2>Guide sur le Streaming</h2>
-          <p>Les sites de streaming, leurs liens et comment changer ses DNS.</p>
+      </li>
+      <!-- Ajoute d'autres articles ici -->
+    </ul>
+
+    <h2 class="section-title">Documentation</h2>
+    <ul class="item-list">
+      <li>
+        <a href="docs/streaming.html">
+          <span class="meta">Guide sur le Streaming</span>
+          <span class="tag">Tuto</span>
         </a>
-      </article>
-      <!-- Ajoutez d'autres articles ici -->
-    </section>
+      </li>
+      <!-- Ajoute d'autres docs ici -->
+    </ul>
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="container">
       <p>&copy; 2025 FFlorian. Tous droits réservés.</p>
     </div>
