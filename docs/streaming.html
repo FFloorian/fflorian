@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" href="../logo.png">
   <title>Guide Streaming – FFlorian</title>
+  <script src="../theme.js" defer></script>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -45,17 +47,49 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
   }
   .logo {
     font-weight: 600;
     font-size: 1.25rem;
     color: var(--accent);
   }
+  
+  #theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text);
+    transition: color 0.2s;
+  }
   nav a {
     margin-left: 1.5rem;
     text-decoration: none;
     color: var(--text-muted);
     transition: color .2s;
+  }
+  
+  /* Styles pour le mode clair */
+  [data-theme="light"] {
+    --bg: #ffffff;
+    --bg-card: #f8f9fa;
+    --accent: #ff304f;
+    --text: #1a1a1a;
+    --text-muted: #6c757d;
+    --border: #dee2e6;
+  }
+  
+  /* Styles pour le mode sombre */
+  [data-theme="dark"] {
+    --bg: #0a0a0a;
+    --bg-card: #1a1a1a;
+    --accent: #ff304f;
+    --text: #f2f2f2;
+    --text-muted: #b3b3b3;
+    --border: #333;
   }
   nav a:hover { color: var(--accent); }
 
@@ -136,6 +170,7 @@
         <a href="../docs.html">Documentation</a>
       </nav>
     </div>
+    <span id="theme-toggle">🌙</span>
   </header>
 
   <main class="container">
