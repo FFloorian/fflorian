@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="../logo.png">
+  <title>Documentation DNS - FFlorian</title>
+  <script src="../theme.js" defer></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #1a1a1a;
+      --accent: #ff304f;
+      --text: #f2f2f2;
+      --text-muted: #b3b3b3;
+      --border: #333;
+      --radius: .6rem;
+      --max-width: 800px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+    
+    #theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color .2s;
+    }
+    
+    /* Styles pour le mode clair */
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --bg-card: #f8f9fa;
+      --accent: #ff304f;
+      --text: #1a1a1a;
+      --text-muted: #6c757d;
+      --border: #dee2e6;
+    }
+    
+    /* Styles pour le mode sombre */
+    [data-theme="dark"] {
+      --bg: #0a0a0a;
+      --bg-card: #1a1a1a;
+      --accent: #ff304f;
+      --text: #f2f2f2;
+      --text-muted: #b3b3b3;
+      --border: #333;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 2.5rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin: 0 0 .5rem;
+      color: var(--accent);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* Section titre */
+    .section-title {
+      font-size: 1.4rem;
+      margin: 2.5rem 0 1.2rem;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: .4rem;
+    }
+
+    /* Article */
+    .article {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .article h1, .article h2, .article h3 {
+      color: var(--accent);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .article p {
+      margin-bottom: 1.2rem;
+    }
+    .article ul {
+      margin: 1.2rem 0;
+      padding-left: 1.5rem;
+    }
+    .article ol {
+      margin: 1.2rem 0;
+      padding-left: 1.5rem;
+    }
+    .article table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    .article th, .article td {
+      border: 1px solid var(--border);
+      padding: .8rem;
+      text-align: left;
+    }
+    .article code {
+      background: var(--bg);
+      padding: .2rem .4rem;
+      border-radius: 4px;
+    }
+    .article pre {
+      background: var(--bg);
+      padding: 1rem;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .article a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .article a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: .85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .nav { flex-direction: column; gap: .5rem; }
+      nav a { margin: 0 .7rem; }
+      .article table { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="nav">
+      <div class="logo">FFlorian</div>
+      <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../docs.html">Documentation</a>
+      </nav>
+      <span id="theme-toggle">🌙</span>
+    </div>
+  </header>
+
+  <main class="article">
+    <h1>🔐 Comment changer ses DNS (DoH, DoT, DNS classique) sur tous vos appareils</h1>
+    <p>Changer vos DNS peut améliorer la <strong>vitesse</strong>, la <strong>sécurité</strong> et la <strong>confidentialité</strong> de votre connexion internet. Ce guide vous explique étape par étape comment configurer des DNS sécurisés (DoH, DoT) ou classiques sur <strong>Windows, macOS, Linux, Android, iOS et navigateurs</strong>.</p>
+
+    <h2>✅ Pourquoi changer de DNS ?</h2>
+    <ul>
+      <li><strong>Sécurité :</strong> Bloquez les attaques et sites malveillants.</li>
+      <li><strong>Vie privée :</strong> Choisissez un fournisseur qui ne conserve pas vos données.</li>
+      <li><strong>Performances :</strong> Accélérez la résolution des sites web.</li>
+      <li><strong>Filtrage :</strong> Bloquez publicités, trackers ou contenus adultes.</li>
+    </ul>
+
+    <h2>🌍 Liste des DNS populaires</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Fournisseur</th>
+          <th>IPv4</th>
+          <th>IPv6</th>
+          <th>DoH URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Google</td>
+          <td>8.8.8.8 / 8.8.4.4</td>
+          <td>2001:4860:4860::8888</td>
+          <td>https://dns.google/dns-query</td>
+        </tr>
+        <tr>
+          <td>Cloudflare</td>
+          <td>1.1.1.1 / 1.0.0.1</td>
+          <td>2606:4700:4700::1111</td>
+          <td>https://cloudflare-dns.com/dns-query</td>
+        </tr>
+        <tr>
+          <td>Quad9</td>
+          <td>9.9.9.9 / 149.112.112.112</td>
+          <td>2620:fe::fe</td>
+          <td>https://dns.quad9.net/dns-query</td>
+        </tr>
+        <tr>
+          <td>AdGuard</td>
+          <td>94.140.14.14 / 94.140.15.15</td>
+          <td>2a10:50c0::ad1:ff</td>
+          <td>https://dns.adguard.com/dns-query</td>
+        </tr>
+        <tr>
+          <td>Mullvad</td>
+          <td>194.242.2.2 / 194.242.2.4</td>
+          <td>2a07:e340::2</td>
+          <td>https://dns.mullvad.net/dns-query</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>🖥️ 1. Changer DNS sur Windows 10 / 11</h2>
+    <h3>Méthode (avec DoH)</h3>
+    <ol>
+      <li>Ouvrez <strong>Paramètres</strong> → <strong>Réseau et Internet</strong> → <strong>Wi-Fi ou Ethernet</strong> → <strong>Propriétés</strong>.</li>
+      <li>Sous <strong>Paramètres IP</strong>, cliquez sur <strong>Modifier</strong>.</li>
+      <li>Activez <strong>Manuel</strong>, cochez IPv4 et IPv6 si disponible.</li>
+      <li>Ajoutez :
+        <pre><code>DNS préféré : 1.1.1.1
+DNS alternatif : 1.0.0.1</code></pre>
+      </li>
+      <li>Activez <strong>DNS via HTTPS (DoH)</strong> → <strong>Personnalisé</strong> :
+        <pre><code>https://cloudflare-dns.com/dns-query</code></pre>
+      </li>
+    </ol>
+
+    <h2>🍏 2. macOS (Ventura+)</h2>
+    <h3>Méthode classique</h3>
+    <ol>
+      <li>Allez dans <strong>Réglages Système</strong> → <strong>Réseau</strong> → <strong>Wi-Fi</strong> → <strong>Avancé</strong> → <strong>DNS</strong>.</li>
+      <li>Ajoutez vos serveurs DNS (exemple Cloudflare : <code>1.1.1.1</code>, <code>1.0.0.1</code>).</li>
+    </ol>
+    <h3>Pour DoH/DoT</h3>
+    <p>Téléchargez et installez un <strong>profil DNS sécurisé</strong> depuis le site du fournisseur (Cloudflare, AdGuard, Mullvad).</p>
+
+    <h2>🐧 3. Linux (Ubuntu/Fedora)</h2>
+    <ol>
+      <li>Activez <code>systemd-resolved</code> :
+        <pre><code>sudo systemctl enable systemd-resolved
+sudo systemctl start systemd-resolved</code></pre>
+      </li>
+      <li>Éditez le fichier :
+        <pre><code>sudo nano /etc/systemd/resolved.conf</code></pre>
+      </li>
+      <li>Ajoutez :
+        <pre><code>DNS=1.1.1.1 9.9.9.9
+DNSOverTLS=yes</code></pre>
+      </li>
+      <li>Redémarrez :
+        <pre><code>sudo systemctl restart systemd-resolved</code></pre>
+      </li>
+    </ol>
+
+    <h2>📱 4. Android (9+)</h2>
+    <ol>
+      <li>Paramètres → Réseau & Internet → <strong>DNS privé</strong>.</li>
+      <li>Sélectionnez <strong>Nom d'hôte</strong> et entrez :
+        <pre><code>1dot1dot1dot1.cloudflare-dns.com
+dns.quad9.net</code></pre>
+      </li>
+    </ol>
+
+    <h2>📲 5. iOS / iPadOS</h2>
+    <ol>
+      <li>Téléchargez un profil DNS sécurisé (Cloudflare, AdGuard).</li>
+      <li>Réglages → Profil téléchargé → Installez-le.</li>
+    </ol>
+
+    <h2>🌐 6. Navigateurs</h2>
+    <h3>Firefox</h3>
+    <ol>
+      <li>Paramètres → Vie privée & sécurité → Activer DNS via HTTPS.</li>
+      <li>Saisissez l'URL DoH (ex : <code>https://dns.google/dns-query</code>).</li>
+    </ol>
+    <h3>Chrome / Edge / Brave</h3>
+    <ol>
+      <li>Paramètres → Confidentialité et sécurité → DNS sécurisé → Personnalisé.</li>
+      <li>Ajoutez votre URL DoH (Cloudflare, Google, etc.).</li>
+    </ol>
+
+    <h2>✅ Vérifier la configuration</h2>
+    <ul>
+      <li><a href="https://1.1.1.1/help" target="_blank">https://1.1.1.1/help</a> (Cloudflare)</li>
+      <li><a href="https://dnscheck.tools/" target="_blank">https://dnscheck.tools/</a></li>
+    </ul>
+
+    <p><strong>Astuce :</strong> Vous devez voir <code>DoH</code> ou <code>DoT activé</code> pour confirmer la configuration.</p>
+  </main>
+
+  <footer>
+    <p>© 2025 FFlorian. Tous droits réservés.</p>
+  </footer>
+</div>
+</body>
+</html>
