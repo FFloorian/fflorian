@@ -201,18 +201,17 @@
   </header>
 
   <main class="article">
-    <h1>🔐 Comment changer ses DNS (DoH, DoT, DNS classique) sur tous vos appareils</h1>
-    <p>Changer vos DNS peut améliorer la <strong>vitesse</strong>, la <strong>sécurité</strong> et la <strong>confidentialité</strong> de votre connexion internet. Ce guide vous explique étape par étape comment configurer des DNS sécurisés (DoH, DoT) ou classiques sur <strong>Windows, macOS, Linux, Android, iOS et navigateurs</strong>.</p>
+    <h1>🔐 Comment changer ses DNS</h1>
+    <p>Ce guide vous explique étape par étape comment changer ses DNS sur <strong>Windows, macOS et navigateurs</strong>.</p>
 
     <h2>✅ Pourquoi changer de DNS ?</h2>
     <ul>
-      <li><strong>Sécurité :</strong> Bloquez les attaques et sites malveillants.</li>
       <li><strong>Vie privée :</strong> Choisissez un fournisseur qui ne conserve pas vos données.</li>
-      <li><strong>Performances :</strong> Accélérez la résolution des sites web.</li>
       <li><strong>Filtrage :</strong> Bloquez publicités, trackers ou contenus adultes.</li>
+      <li><strong>Restrictions :</strong> Contourner les blocages mis en place par votre FAI.</li>
     </ul>
 
-    <h2>🌍 Liste des DNS populaires</h2>
+    <h2>🌍 Liste des DNS recommandés</h2>
     <table>
       <thead>
         <tr>
@@ -223,12 +222,6 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Google</td>
-          <td>8.8.8.8 / 8.8.4.4</td>
-          <td>2001:4860:4860::8888</td>
-          <td>https://dns.google/dns-query</td>
-        </tr>
         <tr>
           <td>Cloudflare</td>
           <td>1.1.1.1 / 1.0.0.1</td>
@@ -256,8 +249,7 @@
       </tbody>
     </table>
 
-    <h2>🖥️ 1. Changer DNS sur Windows 10 / 11</h2>
-    <h3>Méthode (avec DoH)</h3>
+    <h3>🖥️ 1. Changer DNS sur Windows 10 / 11</h3>
     <ol>
       <li>Ouvrez <strong>Paramètres</strong> → <strong>Réseau et Internet</strong> → <strong>Wi-Fi ou Ethernet</strong> → <strong>Propriétés</strong>.</li>
       <li>Sous <strong>Paramètres IP</strong>, cliquez sur <strong>Modifier</strong>.</li>
@@ -266,72 +258,31 @@
         <pre><code>DNS préféré : 1.1.1.1
 DNS alternatif : 1.0.0.1</code></pre>
       </li>
-      <li>Activez <strong>DNS via HTTPS (DoH)</strong> → <strong>Personnalisé</strong> :
-        <pre><code>https://cloudflare-dns.com/dns-query</code></pre>
-      </li>
     </ol>
 
-    <h2>🍏 2. macOS (Ventura+)</h2>
-    <h3>Méthode classique</h3>
+    <h3>🍏 2. macOS (Ventura+)</h3>
     <ol>
       <li>Allez dans <strong>Réglages Système</strong> → <strong>Réseau</strong> → <strong>Wi-Fi</strong> → <strong>Avancé</strong> → <strong>DNS</strong>.</li>
       <li>Ajoutez vos serveurs DNS (exemple Cloudflare : <code>1.1.1.1</code>, <code>1.0.0.1</code>).</li>
     </ol>
-    <h3>Pour DoH/DoT</h3>
-    <p>Téléchargez et installez un <strong>profil DNS sécurisé</strong> depuis le site du fournisseur (Cloudflare, AdGuard, Mullvad).</p>
 
-    <h2>🐧 3. Linux (Ubuntu/Fedora)</h2>
-    <ol>
-      <li>Activez <code>systemd-resolved</code> :
-        <pre><code>sudo systemctl enable systemd-resolved
-sudo systemctl start systemd-resolved</code></pre>
-      </li>
-      <li>Éditez le fichier :
-        <pre><code>sudo nano /etc/systemd/resolved.conf</code></pre>
-      </li>
-      <li>Ajoutez :
-        <pre><code>DNS=1.1.1.1 9.9.9.9
-DNSOverTLS=yes</code></pre>
-      </li>
-      <li>Redémarrez :
-        <pre><code>sudo systemctl restart systemd-resolved</code></pre>
-      </li>
-    </ol>
-
-    <h2>📱 4. Android (9+)</h2>
-    <ol>
-      <li>Paramètres → Réseau & Internet → <strong>DNS privé</strong>.</li>
-      <li>Sélectionnez <strong>Nom d'hôte</strong> et entrez :
-        <pre><code>1dot1dot1dot1.cloudflare-dns.com
-dns.quad9.net</code></pre>
-      </li>
-    </ol>
-
-    <h2>📲 5. iOS / iPadOS</h2>
-    <ol>
-      <li>Téléchargez un profil DNS sécurisé (Cloudflare, AdGuard).</li>
-      <li>Réglages → Profil téléchargé → Installez-le.</li>
-    </ol>
-
-    <h2>🌐 6. Navigateurs</h2>
-    <h3>Firefox</h3>
+    <h3>🌐 3. Navigateurs</h3>
+    <h4>Firefox</h4>
     <ol>
       <li>Paramètres → Vie privée & sécurité → Activer DNS via HTTPS.</li>
-      <li>Saisissez l'URL DoH (ex : <code>https://dns.google/dns-query</code>).</li>
+      <li>Saisissez l'URL DoH (ex : <code>https://dns.mullvad.net/dns-query</code>).</li>
     </ol>
-    <h3>Chrome / Edge / Brave</h3>
+    <h4>Chrome / Edge / Brave</h4>
     <ol>
       <li>Paramètres → Confidentialité et sécurité → DNS sécurisé → Personnalisé.</li>
-      <li>Ajoutez votre URL DoH (Cloudflare, Google, etc.).</li>
+      <li>Ajoutez votre URL DoH (Cloudflare, Mullvad, etc.).</li>
     </ol>
 
-    <h2>✅ Vérifier la configuration</h2>
+    <h2>📚 Ressources/Pour aller plus loin</h2>
     <ul>
-      <li><a href="https://1.1.1.1/help" target="_blank">https://1.1.1.1/help</a> (Cloudflare)</li>
-      <li><a href="https://dnscheck.tools/" target="_blank">https://dnscheck.tools/</a></li>
+      <li><a href="https://mullvad.net/fr/help/dns-over-https-and-dns-over-tls" target="_blank" rel="noopener">Guide complet Mullvad sur DNS-over-HTTPS et DNS-over-TLS</a></li>
     </ul>
 
-    <p><strong>Astuce :</strong> Vous devez voir <code>DoH</code> ou <code>DoT activé</code> pour confirmer la configuration.</p>
   </main>
 
   <footer>
