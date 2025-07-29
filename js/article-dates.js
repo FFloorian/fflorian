@@ -42,10 +42,25 @@ async function loadArticleMetadata() {
             }
         };
         
-        // Trouver l'article courant en comparant les noms de fichiers
+        // Fonction pour extraire le nom de base (sans extension)
+        const getBaseName = (fileName) => {
+            if (!fileName) return '';
+            const parts = fileName.split('.');
+            if (parts.length > 1) {
+                parts.pop(); // Supprimer l'extension
+            }
+            return parts.join('.');
+        };
+
+        // Trouver l'article courant en comparant les noms de base (sans extension)
         const currentArticle = articles.find(article => {
             const articleFile = getFileName(article.url);
-            return articleFile && articleFile.toLowerCase() === currentFile.toLowerCase();
+            const articleBaseName = getBaseName(articleFile);
+            const currentBaseName = getBaseName(currentFile);
+            
+            const match = articleBaseName && currentBaseName && articleBaseName.toLowerCase() === currentBaseName.toLowerCase();
+            if(match) console.log(`Correspondance trouvée: ${currentBaseName} vs ${articleBaseName}`);
+            return match;
         });
         
         if (!currentArticle) {
