@@ -99,6 +99,13 @@ async function searchArticles(query) {
     return results;
 }
 
+// Fonction pour formater une date au format français
+function formatDate(dateString) {
+    if (!dateString) return '';
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('fr-FR', options);
+}
+
 // Fonction pour afficher les résultats de la recherche
 function displayResults(results) {
     const resultsContainer = document.getElementById('search-results');
@@ -109,12 +116,26 @@ function displayResults(results) {
         return;
     }
 
-    resultsContainer.innerHTML = results.map(article => `
+    resultsContainer.innerHTML = results.map(article => {
+        const publishedDate = article.published ? `
+            <div class="search-result-meta">
+                <span class="search-result-date">Publié le: ${formatDate(article.published)}</span>
+                ${article.updated && article.updated !== article.published ? 
+                    `<span class="search-result-updated">• Mis à jour le: ${formatDate(article.updated)}</span>` : ''}
+            </div>` : '';
+
+        return `
         <a href="${article.url}" class="search-result-item">
-            <div class="search-result-title">${article.title}</div>
+            <div class="search-result-header">
+                <div class="search-result-title">${article.title}</div>
+                ${article.tags && article.tags.length > 0 ? 
+                    `<div class="search-result-tags">${article.tags.map(tag => 
+                        `<span class="tag">${tag}</span>`).join(' ')}</div>` : ''}
+            </div>
             ${article.description ? `<div class="search-result-desc">${article.description}</div>` : ''}
-        </a>
-    `).join('');
+            ${publishedDate}
+        </a>`;
+    }).join('');
 }
 
 // Initialisation de la barre de recherche
