@@ -1,32 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../logo.png">
   <title>Démineur Démoniaque – FFlorian</title>
-  <script src="../theme.js" defer></script>
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../theme.js" defer></script>
+  <script src="../js/search.js" defer></script>
 
   <style>
-    :root {
-      --bg: #0a0a0a;
-      --bg-card: #1a1a1a;
-      --accent: #ff304f;
-      --text: #f2f2f2;
-      --text-muted: #b3b3b3;
-      --border: #333;
-      --radius: .6rem;
-      --max-width: 820px;
-    }
-
-    * { box-sizing: border-box; }
+    /* Styles spécifiques à la page Démineur Démoniaque */
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -157,26 +143,27 @@
 
     /* Responsive */
     @media (max-width: 600px) {
-      .nav-container { flex-direction: column; gap: .5rem; }
-      nav a { margin: 0 .7rem; }
+      .nav { flex-direction: column; gap: .5rem; }
     }
   </style>
 </head>
 
 <body>
-  <header class="header">
-    <div class="container nav-container">
-      <div class="logo">FFlorian</div>
-      <nav>
-        <a href="../index.html">Accueil</a>
-        <a href="../blog.html">Blog</a>
-        <a href="../docs.html">Documentation</a>
-      </nav>
-      <span id="theme-toggle">🌙</span>
+  <header>
+    <div class="container nav">
+      <a href="../index.html" class="logo">FFlorian</a>
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Rechercher des articles...">
+        <div id="search-results" class="search-results"></div>
+      </div>
+      <button id="theme-toggle" aria-label="Changer de thème">
+        <span class="theme-icon">🌓</span>
+      </button>
     </div>
   </header>
 
-  <main class="container">
+  <div class="container">
+    <main>
     <article class="article-detail">
       <h1>Démineur Démoniaque</h1>
       <p>
@@ -196,11 +183,21 @@
       </a>
     </article>
   </main>
+  </div>
 
   <footer class="footer">
     <div class="container">
       <p>&copy; 2025 FFlorian. Tous droits réservés.</p>
     </div>
   </footer>
+  <script>
+    // Initialiser le thème
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.innerHTML = document.documentElement.getAttribute('data-theme') === 'dark' ? '🌙' : '☀️';
+      }
+    });
+  </script>
 </body>
 </html>

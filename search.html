@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recherche - FFlorian</title>
+  <link rel="icon" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #1a1a1a;
+      --accent: #ff304f;
+      --text: #f2f2f2;
+      --text-muted: #b3b3b3;
+      --border: #333;
+      --radius: .6rem;
+      --max-width: 800px;
+    }
+    
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+    
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+    
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    
+    .logo {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    /* Barre de recherche */
+    .search-container {
+      position: relative;
+      flex-grow: 1;
+      max-width: 500px;
+      margin: 0 1rem;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+    }
+    
+    /* Résultats de recherche */
+    .search-results {
+      margin-top: 2rem;
+    }
+    
+    .search-result-item {
+      display: block;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .search-result-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 48, 79, 0.1);
+    }
+    
+    .search-result-title {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    
+    .search-result-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    .search-query {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    /* Mode clair */
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --bg-card: #f8f9fa;
+      --accent: #ff304f;
+      --text: #1a1a1a;
+      --text-muted: #6c757d;
+      --border: #dee2e6;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .search-container {
+        width: 100%;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">FFlorian</a>
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Rechercher des articles...">
+      </div>
+      <span id="theme-toggle">🌙</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Résultats de recherche pour : <span id="search-query" class="search-query"></span></h1>
+    <div id="search-results" class="search-results">
+      <!-- Les résultats seront affichés ici par JavaScript -->
+    </div>
+  </main>
+
+  <script src="js/theme.js"></script>
+  <script src="js/search.js"></script>
+  <script>
+    // Afficher la requête de recherche dans la page
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q');
+    
+    if (query) {
+      document.getElementById('search-query').textContent = `"${query}"`;
+      document.getElementById('search-input').value = query;
+      
+      // Effectuer la recherche automatiquement
+      searchArticles(query).then(results => {
+        displayResults(results);
+      });
+    }
+  </script>
+</body>
+</html>

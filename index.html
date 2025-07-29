@@ -6,75 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FFlorian</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
   <script src="theme.js" defer></script>
+  <script src="js/search.js" defer></script>
   <style>
-    :root {
-      --bg: #0a0a0a;
-      --bg-card: #1a1a1a;
-      --accent: #ff304f;
-      --text: #f2f2f2;
-      --text-muted: #b3b3b3;
-      --border: #333;
-      --radius: .6rem;
-      --max-width: 800px;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    .container {
-      width: 90%;
-      max-width: var(--max-width);
-      margin: auto;
-    }
-
-    /* Header */
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
-    }
-    
-    /* Sélecteur de thème */
-    #theme-toggle {
-      cursor: pointer;
-      font-size: 1.5rem;
-      transition: color 0.2s;
-    }
-    
-    /* Styles pour le mode clair */
-    [data-theme="light"] {
-      --bg: #ffffff;
-      --bg-card: #f8f9fa;
-      --accent: #ff304f;
-      --text: #1a1a1a;
-      --text-muted: #6c757d;
-      --border: #dee2e6;
-    }
-    
-    /* Styles pour le mode sombre */
-    [data-theme="dark"] {
-      --bg: #0a0a0a;
-      --bg-card: #1a1a1a;
-      --accent: #ff304f;
-      --text: #f2f2f2;
-      --text-muted: #b3b3b3;
-      --border: #333;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .logo {
-      font-weight: 600;
-      font-size: 1.25rem;
-      color: var(--accent);
-    }
+    /* Styles spécifiques à la page d'accueil */
     
     #theme-toggle {
       position: fixed;
@@ -180,11 +116,11 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="logo">FFlorian</div>
-      <nav>
-        <a href="./docs.html">Documentation</a>
-        <a href="./blog.html">Blog</a>
-      </nav>
+      <a href="index.html" class="logo">FFlorian</a>
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Rechercher des articles...">
+        <div id="search-results" class="search-results"></div>
+      </div>
       <span id="theme-toggle">🌙</span>
     </div>
   </header>
@@ -200,23 +136,23 @@
     <h2 class="section-title">Derniers articles</h2>
     <ul class="item-list">
       <li>
-        <a href="blog/premier-article.html">
+        <a href="articles/dns.html">
+          <span class="meta">Guide les DNS</span>
+          <span class="tag">Tuto</span>
+        </a>
+      </li>
+      <li>
+        <a href="articles/streaming.html">
+          <span class="meta">Guide sur le streaming</span>
+          <span class="tag">Docs</span>
+        </a>
+      </li>
+      <li>
+        <a href="articles/premier-article.html">
           <span class="meta">Démineur Démoniaque</span>
           <span class="tag">Jeu</span>
         </a>
       </li>
-      <!-- Ajoute d'autres articles ici -->
-    </ul>
-
-    <h2 class="section-title">Documentation</h2>
-    <ul class="item-list">
-      <li>
-        <a href="docs/streaming.html">
-          <span class="meta">Guide sur le Streaming</span>
-          <span class="tag">Ressources</span>
-        </a>
-      </li>
-      <!-- Ajoute d'autres docs ici -->
     </ul>
   </main>
 

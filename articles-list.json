@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Démineur Démoniaque",
+    "description": "Un jeu de démineur revisité avec un thème effrayant",
+    "url": "articles/premier-article.html",
+    "tags": ["jeu", "python"]
+  },
+  {
+    "title": "Guide Streaming",
+    "description": "Guide pour regarder des films et séries en streaming",
+    "url": "articles/streaming.html",
+    "tags": ["streaming", "guide"]
+  },
+  {
+    "title": "Configuration DNS",
+    "description": "Comment configurer les DNS pour débloquer des sites",
+    "url": "articles/dns.html",
+    "tags": ["dns", "réseau", "guide"]
+  }
+]

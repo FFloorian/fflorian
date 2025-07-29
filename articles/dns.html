@@ -5,28 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" href="../logo.png">
   <title>Documentation DNS - FFlorian</title>
-  <script src="../theme.js" defer></script>
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../theme.js" defer></script>
+  <script src="../js/search.js" defer></script>
 
   <style>
-    :root {
-      --bg: #0a0a0a;
-      --bg-card: #1a1a1a;
-      --accent: #ff304f;
-      --text: #f2f2f2;
-      --text-muted: #b3b3b3;
-      --border: #333;
-      --radius: .6rem;
-      --max-width: 800px;
-    }
-    * { box-sizing: border-box; }
+    /* Styles spécifiques à la page DNS */
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
       line-height: 1.6;
     }
     .container {
@@ -187,19 +173,20 @@
   </style>
 </head>
 <body>
-<div class="container">
   <header>
-    <div class="nav">
-      <div class="logo">FFlorian</div>
-      <nav>
-        <a href="../index.html">Accueil</a>
-        <a href="../blog.html">Blog</a>
-        <a href="../docs.html">Documentation</a>
-      </nav>
-      <span id="theme-toggle">🌙</span>
+    <div class="container nav">
+      <a href="../index.html" class="logo">FFlorian</a>
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Rechercher des articles...">
+        <div id="search-results" class="search-results"></div>
+      </div>
+      <button id="theme-toggle" aria-label="Changer de thème">
+        <span class="theme-icon">🌓</span>
+      </button>
     </div>
   </header>
 
+  <div class="container">
   <main class="article">
     <h1>🔐 Comment changer ses DNS</h1>
     <p>Ce guide vous explique étape par étape comment changer ses DNS sur <strong>Windows, macOS et navigateurs</strong>.</p>
