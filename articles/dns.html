@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="../logo.png">
+  <title>Documentation DNS - FFlorian</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../theme.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/article-dates.js" defer></script>
+
+  <style>
+    /* Styles spécifiques à la page DNS */
+    body {
+      line-height: 1.6;
+    }
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: auto;
+    }
+
+    /* ---------- Header ---------- */
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+    
+    #theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color .2s;
+    }
+    
+    /* Styles pour le mode clair */
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --bg-card: #f8f9fa;
+      --accent: #ff304f;
+      --text: #1a1a1a;
+      --text-muted: #6c757d;
+      --border: #dee2e6;
+    }
+    
+    /* Styles pour le mode sombre */
+    [data-theme="dark"] {
+      --bg: #0a0a0a;
+      --bg-card: #1a1a1a;
+      --accent: #ff304f;
+      --text: #f2f2f2;
+      --text-muted: #b3b3b3;
+      --border: #333;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* Titre de l'article */
+    .article-title {
+      font-size: 2.2rem;
+      margin: 2rem 0 1.5rem;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 2.5rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin: 0 0 .5rem;
+      color: var(--accent);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* Section titre */
+    .section-title {
+      font-size: 1.4rem;
+      margin: 2.5rem 0 1.2rem;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: .4rem;
+    }
+
+    /* Contenu de l'article */
+    .article {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .article h2, .article h3 {
+      color: var(--accent);
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid var(--border);
+    }
+    .article p {
+      margin-bottom: 1.2rem;
+    }
+    .article ul {
+      margin: 1.2rem 0;
+      padding-left: 1.5rem;
+    }
+    .article ol {
+      margin: 1.2rem 0;
+      padding-left: 1.5rem;
+    }
+    .article table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    .article th, .article td {
+      border: 1px solid var(--border);
+      padding: .8rem;
+      text-align: left;
+    }
+    .article code {
+      background: var(--bg);
+      padding: .2rem .4rem;
+      border-radius: 4px;
+    }
+    .article pre {
+      background: var(--bg);
+      padding: 1rem;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .article a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .article a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: .85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .nav { flex-direction: column; gap: .5rem; }
+      nav a { margin: 0 .7rem; }
+      .article table { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">FFlorian</a>
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Rechercher des articles...">
+        <div id="search-results" class="search-results"></div>
+      </div>
+      <button id="theme-toggle" aria-label="Changer de thème">
+        <span class="theme-icon">🌓</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="container article">
+    <h1 class="article-title">🔐 Comment changer ses DNS</h1>
+    <p>Ce guide vous explique étape par étape comment changer ses DNS sur <strong>Windows, macOS et navigateurs</strong>.</p>
+
+    <h2>✅ Pourquoi changer de DNS ?</h2>
+    <ul>
+      <li><strong>Vie privée :</strong> Choisissez un fournisseur qui ne conserve pas vos données.</li>
+      <li><strong>Filtrage :</strong> Bloquez publicités, trackers ou contenus adultes.</li>
+      <li><strong>Restrictions :</strong> Contourner les blocages mis en place par votre FAI.</li>
+    </ul>
+
+    <h2>🌍 Liste des DNS recommandés</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Fournisseur</th>
+          <th>IPv4</th>
+          <th>IPv6</th>
+          <th>DoH URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cloudflare</td>
+          <td>1.1.1.1 / 1.0.0.1</td>
+          <td>2606:4700:4700::1111</td>
+          <td>https://cloudflare-dns.com/dns-query</td>
+        </tr>
+        <tr>
+          <td>Quad9</td>
+          <td>9.9.9.9 / 149.112.112.112</td>
+          <td>2620:fe::fe</td>
+          <td>https://dns.quad9.net/dns-query</td>
+        </tr>
+        <tr>
+          <td>AdGuard</td>
+          <td>94.140.14.14 / 94.140.15.15</td>
+          <td>2a10:50c0::ad1:ff</td>
+          <td>https://dns.adguard.com/dns-query</td>
+        </tr>
+        <tr>
+          <td>Mullvad</td>
+          <td>194.242.2.2 / 194.242.2.4</td>
+          <td>2a07:e340::2</td>
+          <td>https://dns.mullvad.net/dns-query</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>🖥️ 1. Changer DNS sur Windows 10 / 11</h3>
+    <ol>
+      <li>Ouvrez <strong>Paramètres</strong> → <strong>Réseau et Internet</strong> → <strong>Wi-Fi ou Ethernet</strong> → <strong>Propriétés</strong>.</li>
+      <li>Sous <strong>Paramètres IP</strong>, cliquez sur <strong>Modifier</strong>.</li>
+      <li>Activez <strong>Manuel</strong>, cochez IPv4 et IPv6 si disponible.</li>
+      <li>Ajoutez :
+        <pre><code>DNS préféré : 1.1.1.1
+DNS alternatif : 1.0.0.1</code></pre>
+      </li>
+    </ol>
+
+    <h3>🍏 2. macOS (Ventura+)</h3>
+    <ol>
+      <li>Allez dans <strong>Réglages Système</strong> → <strong>Réseau</strong> → <strong>Wi-Fi</strong> → <strong>Avancé</strong> → <strong>DNS</strong>.</li>
+      <li>Ajoutez vos serveurs DNS (exemple Cloudflare : <code>1.1.1.1</code>, <code>1.0.0.1</code>).</li>
+    </ol>
+
+    <h3>🌐 3. Navigateurs</h3>
+    <h4>Firefox</h4>
+    <ol>
+      <li>Paramètres → Vie privée & sécurité → Activer DNS via HTTPS.</li>
+      <li>Saisissez l'URL DoH (ex : <code>https://dns.mullvad.net/dns-query</code>).</li>
+    </ol>
+    <h4>Chrome / Edge / Brave</h4>
+    <ol>
+      <li>Paramètres → Confidentialité et sécurité → DNS sécurisé → Personnalisé.</li>
+      <li>Ajoutez votre URL DoH (Cloudflare, Mullvad, etc.).</li>
+    </ol>
+
+    <h2>📚 Ressources/Pour aller plus loin</h2>
+    <ul>
+      <li><a href="https://mullvad.net/fr/help/dns-over-https-and-dns-over-tls" target="_blank" rel="noopener">Guide complet Mullvad sur DNS-over-HTTPS et DNS-over-TLS</a></li>
+    </ul>
+
+  <footer>
+    <p>© 2025 FFlorian. Tous droits réservés.</p>
+  </footer>
+</div>
+</body>
+</html>
