@@ -219,12 +219,182 @@
       color: var(--accent);
     }
 
+    /* Articles épinglés */
+    .featured-section {
+      margin: 3rem 0 4rem;
+    }
+
+    .featured-articles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .featured-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .featured-content {
+      padding: 1.8rem;
+      position: relative;
+    }
+
+    .featured-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: 50px;
+      box-shadow: 0 2px 8px rgba(255, 48, 79, 0.3);
+      z-index: 1;
+    }
+
+    .featured-card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.5rem;
+    }
+
+    .featured-card h3 a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .featured-card h3 a:hover {
+      color: var(--accent);
+    }
+
+    .featured-card p {
+      color: var(--text-muted);
+      margin: 0 0 1.25rem;
+      line-height: 1.5;
+    }
+
+    /* Derniers articles */
+    .recent-articles {
+      margin: 4rem 0;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .article-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .article-card h3 a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .article-card h3 a:hover {
+      color: var(--accent);
+    }
+
+    .article-card p {
+      color: var(--text-muted);
+      margin: 0 0 1rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .article-meta .date {
+      opacity: 0.8;
+    }
+
+    .article-meta .tag {
+      background: rgba(255, 48, 79, 0.1);
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Titres de section */
+    .section-title {
+      font-size: 1.8rem;
+      margin: 0 0 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+      color: var(--text);
+    }
+
     /* Responsive */
+    @media (max-width: 768px) {
+      .featured-articles {
+        grid-template-columns: 1fr;
+      }
+      
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 600px) {
       .nav { flex-direction: column; gap: .5rem; }
       nav a { margin: 0 .7rem; }
       .item-list a { flex-direction: column; align-items: flex-start; }
       .item-list .tag { margin: .4rem 0 0 0; }
+      
+      .featured-card,
+      .article-card {
+        margin-bottom: 1.5rem;
+      }
+      
+      .featured-content,
+      .card-content {
+        padding: 1.25rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -255,27 +425,60 @@
   </section>
 
   <main class="container">
-    <h2 class="section-title">Derniers articles</h2>
-    <ul class="item-list">
-      <li>
-        <a href="articles/dns.html">
-          <span class="meta">Configurer les DNS</span>
-          <span class="tag">Tuto</span>
-        </a>
-      </li>
-      <li>
-        <a href="articles/streaming.html">
-          <span class="meta">Guide Streaming</span>
-          <span class="tag">Docs</span>
-        </a>
-      </li>
-      <li>
-        <a href="articles/premier-article.html">
-          <span class="meta">Démineur Démoniaque</span>
-          <span class="tag">Jeu</span>
-        </a>
-      </li>
-    </ul>
+    <!-- Section Articles épinglés -->
+    <section class="featured-section">
+      <h2 class="section-title">Articles à la une</h2>
+      <div class="featured-articles">
+        <article class="featured-card">
+          <div class="featured-content">
+            <span class="featured-tag">Mis en avant</span>
+            <h3><a href="articles/streaming.html">Guide Streaming</a></h3>
+            <p>Découvrez les meilleures méthodes pour regarder vos films et séries</p>
+            <div class="article-meta">
+              <span class="date">Dernière mise à jour : 15 mai 2025</span>
+              <span class="tag">Streaming</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section Derniers articles -->
+    <section class="recent-articles">
+      <h2 class="section-title">Derniers articles</h2>
+      <div class="article-grid">
+        <article class="article-card">
+          <div class="card-content">
+            <h3><a href="articles/dns.html">Configuration DNS</a></h3>
+            <p>Comment configurer les DNS pour débloquer des sites</p>
+            <div class="article-meta">
+              <span class="date">21 juillet 2025</span>
+              <span class="tag">Réseau</span>
+            </div>
+          </div>
+        </article>
+        <article class="article-card">
+          <div class="card-content">
+            <h3><a href="articles/streaming.html">Guide Streaming</a></h3>
+            <p>Découvrez les meilleures méthodes pour regarder vos films et séries</p>
+            <div class="article-meta">
+              <span class="date">22 avril 2025</span>
+              <span class="tag">Streaming</span>
+            </div>
+          </div>
+        </article>
+        <article class="article-card">
+          <div class="card-content">
+            <h3><a href="articles/premier-article.html">Démineur Démoniaque</a></h3>
+            <p>Un jeu de démineur revisité avec un thème effrayant</p>
+            <div class="article-meta">
+              <span class="date">21 avril 2025</span>
+              <span class="tag">Jeu</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer>

@@ -11,8 +11,9 @@ const articles = [
     description: 'Un jeu de démineur revisité avec un thème effrayant',
     url: 'articles/premier-article.html',
     tags: ['jeu', 'python'],
-    published: '2025-01-15',
-    updated: '2025-06-20',
+    published: '2025-04-21',
+    updated: '2025-05-16',
+    pinned: true,
     content: 'Un jeu de démineur avec des graphismes effrayants et une atmosphère angoissante. Développé en Python avec Pygame.'
   },
   {
@@ -20,8 +21,9 @@ const articles = [
     description: 'Guide pour regarder des films et séries en streaming',
     url: 'articles/streaming.html',
     tags: ['streaming', 'guide'],
-    published: '2025-02-10',
-    updated: '2025-05-15',
+    published: '2025-04-22',
+    updated: '2025-07-19',
+    pinned: true,
     content: 'Découvrez les meilleures méthodes pour regarder vos films et séries préférés en streaming légalement et en haute qualité.'
   },
   {
@@ -29,8 +31,9 @@ const articles = [
     description: 'Comment configurer les DNS pour débloquer des sites',
     url: 'articles/dns.html',
     tags: ['dns', 'réseau', 'guide'],
-    published: '2025-03-05',
-    updated: '2025-04-18',
+    published: '2025-07-21',
+    updated: '2025-07-21',
+    pinned: false,
     content: 'Guide complet pour configurer les serveurs DNS sur différents appareils et systèmes d\'exploitation pour améliorer votre expérience de navigation.'
   }
 ];
