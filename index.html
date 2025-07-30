@@ -12,23 +12,73 @@
   <style>
     /* Styles spécifiques à la page d'accueil */
     
-    #theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      z-index: 1000;
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: var(--text);
-      transition: color 0.2s;
+    body {
+      line-height: 1.6;
     }
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: auto;
+    }
+
+    /* ---------- Header ---------- */
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+    
+    /* Conteneur des boutons d'en-tête */
+    .header-buttons {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    /* Bouton Twitter */
+    .twitter-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+    
+    .twitter-button:hover {
+      color: #1DA1F2;
+      background-color: rgba(29, 161, 242, 0.1);
+      transform: translateY(-1px);
+    }
+    
     nav a {
       margin-left: 1.5rem;
       text-decoration: none;
       color: var(--text-muted);
       transition: color .2s;
     }
-    nav a:hover { color: var(--accent); }
+    
+    /* Styles pour le mode clair */
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --bg-card: #f8f9fa;
+      --accent: #ff304f;
+      --text: #1a1a1a;
+      --text-muted: #6c757d;
+      --border: #dee2e6;
+    }
 
     /* Hero */
     .hero {
@@ -114,9 +164,9 @@
 </head>
 
 <body>
-  <header>
-    <div class="container nav">
-      <a href="index.html" class="logo">FFlorian</a>
+  <header class="header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">FFlorian</a>
       <div class="search-container">
         <input type="text" id="search-input" class="search-input" placeholder="Rechercher des articles...">
         <div id="search-results" class="search-results"></div>
