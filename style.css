@@ -29,7 +29,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 900px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
     width: 100%;
@@ -40,6 +40,8 @@ header h1 {
   margin: 0;
   font-size: 1.8rem;
   font-weight: normal;
+  flex-grow: 1;
+  text-align: left;
 }
 
 header h1 a {
@@ -56,6 +58,7 @@ header h1 a {
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.2s, color 0.2s;
+    margin-left: auto;
 }
 
 .twitter-button:hover {
@@ -64,7 +67,7 @@ header h1 a {
 }
 
 main {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
   box-sizing: border-box;
@@ -119,6 +122,34 @@ section h2 {
 
   .article-card {
     padding: 0.8rem 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    margin: 0 0 1rem 0;
+  }
+
+  .article-header,
+  .article-content {
+    background: transparent;
+    padding: 1rem 1rem;
+    border-radius: 0;
+    margin: 0;
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  .article-header {
+    border-left: none;
+    padding-top: 1.5rem;
+  }
+
+  .article-header h1 {
+    font-size: 1.8rem;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 }
 
@@ -176,39 +207,30 @@ section h2 {
 
 /* Styles pour le layout d'article */
 .article-layout {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  width: 100%;
 }
 
-.article-header {
-  background: var(--card-bg);
-  max-width: 650px;
-  margin: 0 auto 2rem auto;
-  padding: 1.2rem 2.2rem 1.2rem 2.2rem;
-  border-radius: 10px;
-  border-left: 4px solid var(--accent-red);
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
-  text-align: center;
+.article-layout .article-header {
+  max-width: 100%;
+  margin: 0 0 2rem 0;
+  padding: 1rem 0;
+  border-left: none;
+  border-bottom: 2px solid var(--accent-red);
+  text-align: left;
+  background: transparent;
+  box-shadow: none;
 }
 
-.article-header h1 {
+.article-layout .article-header h1 {
   font-size: 2.1rem;
   margin-bottom: 0.4em;
-}
-
-.article-meta {
-  justify-content: center;
-  text-align: center;
-}
-
-.article-header h1 {
-  margin-top: 0;
   color: var(--primary-text-color);
-  font-size: 2.2rem;
 }
 
-.article-meta {
+.article-layout .article-meta {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -216,19 +238,59 @@ section h2 {
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
   color: var(--secondary-text-color);
+  justify-content: flex-start;
+  text-align: left;
 }
 
-.article-content {
-  background: var(--card-bg);
-  max-width: 900px;
+.article-layout .article-content {
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto 2rem auto;
-  padding: 2.2rem 2.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+  padding: 1rem 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+  background: transparent;
+  box-shadow: none;
 }
 
-.article-content a {
-    color: var(--accent-red);
+.article-layout .article-content a {
+  color: var(--accent-red);
+  word-break: break-word;
+}
+
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  table-layout: auto;
+  white-space: nowrap;
+  font-size: 0.95em;
+}
+
+@media (min-width: 992px) {
+  .article-content table {
+    font-size: 1em;
+  }
+}
+
+.article-content th,
+.article-content td {
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-content th {
+  background-color: var(--header-bg);
+}
+
+.article-content code {
+  background-color: var(--header-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+  word-break: break-all;
 }
 
 .article-content a:hover {
