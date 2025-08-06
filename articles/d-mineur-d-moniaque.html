@@ -30,27 +30,31 @@
 
             <div class="article-content">
                 <style>
+
   .gallery {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
+    gap: 2rem;
+    margin: 2rem 0;
     width: 100%;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
   }
+  
   .gallery img {
-    flex: 1 1 400px;
-    max-width: 600px;
     width: 100%;
+    max-width: 100%;
     height: auto;
-    border: 1px solid #222;
+    border: 1px solid #333;
     border-radius: 8px;
-    padding: 8px;
     background: #181818;
     box-sizing: border-box;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
     display: block;
+    object-fit: contain;
   }
   .bouton-telecharger {
     display: block;
@@ -104,8 +108,8 @@
 
       <!-- Galerie d’images -->
       <div class="gallery">
-        <img src="screenshot1.png" alt="Capture d’écran 1 du jeu">
-        <img src="screenshot2.png" alt="Capture d’écran 2 du jeu">
+        <img src="screenshot1.PNG" alt="Capture d'écran 1 du jeu">
+        <img src="screenshot2.PNG" alt="Capture d'écran 2 du jeu">
       </div>
 
       <a class="bouton-telecharger" href="https://github.com/FFloorian/Demineur-Demoniaque/releases/download/v0.1.1/Demineur.Demoniaque.0.1.1.exe" download>
