@@ -91,13 +91,47 @@ section h2 {
 
 /* Styles pour la liste des articles */
 .article-card {
+  display: flex;
   background: var(--card-bg);
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 0.7rem;
+  margin-bottom: 1rem;
   border-radius: 5px;
   border: 1px solid var(--border-color);
   font-size: 0.92rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+/* Style pour les tags à droite de l'article */
+.article-tags {
+  min-width: 100px;
+  background-color: var(--card-bg);
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  order: 2; /* Déplace les tags à droite */
+  border-left: 1px solid var(--border-color);
+}
+
+.article-tag {
+  background-color: var(--accent-red);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Contenu principal de l'article */
+.article-content {
+  flex: 1;
+  padding: 1rem;
 }
 
 .article-card h3 {
@@ -166,6 +200,7 @@ section h2 {
 
 .article-card h3 {
   margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 .article-card h3 a {
@@ -180,13 +215,67 @@ section h2 {
 
 .article-date {
   color: var(--secondary-text-color);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.article-modified-date {
+  color: var(--secondary-text-color);
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.8;
+  margin-left: 0.5rem;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.article-modified-date::before {
+  content: "•";
+  margin-right: 0.5rem;
+  opacity: 0.6;
 }
 
 .excerpt {
     color: var(--secondary-text-color);
     margin-bottom: 1rem;
+}
+
+/* Style pour le bouton "Voir tous les articles" */
+.view-all-container {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.view-all-button {
+    display: inline-block;
+    padding: 0.7rem 2rem;
+    background-color: var(--card-bg);
+    color: var(--accent-red);
+    border: 1px solid var(--accent-red);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.view-all-button:hover {
+    background-color: var(--accent-red);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(217, 4, 41, 0.2);
+}
+
+@media (max-width: 600px) {
+    .view-all-button {
+        width: 100%;
+        padding: 0.8rem;
+    }
 }
 
 .read-more {

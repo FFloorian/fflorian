@@ -3,6 +3,7 @@
     "filename": "guide-streaming.html",
     "title": "Guide Streaming",
     "date": "2025-04-22",
+    "tags": ["Films", "Séries"],
     "excerpt": "3 sites de streaming et comment les utiliser.",
     "pinned": true,
     "modified": "2025-08-06"
@@ -11,6 +12,7 @@
     "filename": "guide-dns.html",
     "title": "Guide DNS",
     "date": "2025-07-21",
+    "tags": ["Tutoriel", "Informatique"],
     "excerpt": "Configurer ses DNS sur Windows, macOS ou navigateur.",
     "pinned": false,
     "modified": "2025-07-21"
@@ -18,6 +20,7 @@
   {
     "filename": "d-mineur-d-moniaque.html",
     "title": "Démineur Démoniaque",
+    "tags": ["Jeu", "Python"],
     "date": "2025-04-21",
     "excerpt": "Un jeu de démineur revisité avec un thème effrayant.",
     "modified": "2025-05-16"
