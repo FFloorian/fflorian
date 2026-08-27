@@ -3,53 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Blog Personnel de FFlorian">
-  <title>FFlorian</title>
+  <meta name="description" content="FFlorian — Guides simples et utiles : streaming et DNS. Un site clair, sans pub, vert forêt.">
+  <title>FFlorian — Sites Streamings & DNS</title>
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <div class="header-container">
-      <h1><a href="index.html">FFlorian</a></h1>
-      <form action="articles.html" method="get" class="search-form">
-        <input type="search" name="q" placeholder="Rechercher des articles..." aria-label="Rechercher des articles">
-        <button type="submit" aria-label="Rechercher">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-          </svg>
-        </button>
-      </form>
+      <h1><a href="index.html">fflorian.fr</a></h1>
       <a href="https://twitter.com/fflorianfcm" target="_blank" rel="noopener noreferrer" class="twitter-button">Twitter</a>
     </div>
   </header>
 
   <main>
-    <section id="pinned-articles-section" style="display:none">
-      <h2>Articles épinglés</h2>
-      <div id="pinned-articles-container">
-        <p>Aucun article épinglé.</p>
-      </div>
-    </section>
-    <section id="latest-articles-section">
-      <h2>Derniers articles</h2>
-      <div id="articles-container">
-        <p>Chargement des articles...</p>
-      </div>
+    <section class="guides-grid" aria-label="Guides mis en avant">
+      <a class="guide-card" href="articles/guide-streaming.html">
+        <h3>Sites Streamings</h3>
+        <p class="excerpt">Les meilleurs sites pour films et séries en VF/VOSTFR — liens vérifiés, conseils bloqueur de pub et DNS.</p>
+        <div class="card-meta">
+          <span>Mis à jour le 27 août 2026</span>
+        </div>
+        <span class="card-link">Lire le guide</span>
+      </a>
+
+      <a class="guide-card" href="articles/guide-dns.html">
+        <h3>Guide DNS</h3>
+        <p class="excerpt">Changez vos DNS en 2 minutes sur Windows, macOS et navigateurs — plus de vie privée et contournement des blocages FAI.</p>
+        <div class="card-meta">
+          <span>Mis à jour le 27 août 2026</span>
+        </div>
+        <span class="card-link">Lire le guide</span>
+      </a>
     </section>
   </main>
 
   <footer>
     <div class="footer-content">
       <div class="footer-left">
-        <p>Ce site est open source : <a href="https://github.com/FFloorian/fflorian" style="color: var(--accent-red);">Voir sur GitHub</a>. Il ne collecte aucune donnée personnelle. Toutefois, l'hébergeur (Netlify) peut enregistrer certaines informations techniques (comme l'adresse IP) à des fins de journalisation et de sécurité. Ce site ne contient aucune publicité.</p>
+        <p>Site open source : <a href="https://github.com/FFloorian/fflorian">Voir sur GitHub</a>. Aucune donnée personnelle collectée. Hébergé sur Netlify. Aucune publicité.</p>
       </div>
       <div class="footer-right">
         <p>&copy; 2025 FFlorian. Tous droits réservés.</p>
       </div>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
