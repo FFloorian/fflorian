@@ -1,5 +1,15 @@
 [build]
-  command = "quarto render"
+  command = """
+    if ! command -v quarto >/dev/null 2>&1; then
+      echo "Installation Quarto $QUARTO_VERSION...";
+      wget -q https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz -O /tmp/quarto.tar.gz &&
+      mkdir -p $HOME/quarto &&
+      tar -xzf /tmp/quarto.tar.gz -C $HOME/quarto --strip-components=1;
+    fi &&
+    export PATH="$HOME/quarto/bin:$PATH" &&
+    quarto --version &&
+    quarto render
+    """
   publish = "_site"
 
 [build.environment]
