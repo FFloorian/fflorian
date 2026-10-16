@@ -1,0 +1,30 @@
+---
+page-layout: full
+toc: false
+---
+
+::: {.grid .gap-3 .mt-4}
+::: {.g-col-12 .g-col-md-6}
+::: {.guide-card}
+### Sites Streamings
+
+Les meilleurs sites pour films et séries en VF/VOSTFR — liens vérifiés, conseils bloqueur de pub et DNS.
+
+Mis à jour le 16 octobre 2026
+
+[ Lire l'article ](articles/guide-streaming.qmd){.card-link}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.guide-card}
+### Guide DNS
+
+Changez vos DNS en 2 minutes sur Windows, macOS et navigateurs — plus de vie privée et contournement des blocages FAI.
+
+Mis à jour le 27 août 2026
+
+[ Lire l'article ](articles/guide-dns.qmd){.card-link}
+:::
+:::
+:::

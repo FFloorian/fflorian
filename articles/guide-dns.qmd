@@ -1,0 +1,98 @@
+---
+title: "Guide DNS"
+description: "Comprendre, choisir et configurer Cloudflare, Quad9, AdGuard ou Mullvad sur Windows, macOS, Android et navigateurs."
+date: 2025-07-21
+date-modified: 2026-08-27
+categories: [dns, vie-privée, guides]
+lang: fr
+toc: true
+---
+
+## C'est quoi un DNS ?
+
+Chaque fois que vous tapez `example.com`, votre appareil interroge un annuaire appelé DNS qui traduit ce nom en adresse IP. Par défaut, cet annuaire est celui de votre fournisseur d'accès (Orange, Free, SFR, Bouygues). Il voit donc tous les sites que vous consultez, peut les bloquer sur demande et ne chiffre rien.
+
+Changer de DNS, c'est remplacer cet annuaire par un autre, plus rapide, plus privé ou qui filtre les dangers. Cela prend 2 minutes, c'est réversible en un clic et ne nécessite aucun logiciel si vous le faites au niveau système ou navigateur.
+
+## Adresses exactes à copier
+
+Copiez-collez une ligne complète. Mettez toujours deux adresses (principale + secondaire) pour que la connexion reste active si l'une tombe.
+
+| Fournisseur | IPv4 (à saisir tel quel) | IPv6 (si demandé) | DoH URL (pour navigateur ou DNS chiffré) |
+|---|---|---|---|
+| Cloudflare | `1.1.1.1` et `1.0.0.1` | `2606:4700:4700::1111` et `2606:4700:4700::1001` | `https://cloudflare-dns.com/dns-query` |
+| Quad9 (recommandé) | `9.9.9.9` et `149.112.112.112` | `2620:fe::fe` et `2620:fe::9` | `https://dns.quad9.net/dns-query` |
+| AdGuard (avec blocage pubs) | `94.140.14.14` et `94.140.15.15` | `2a10:50c0::ad1:ff` et `2a10:50c0::ad2:ff` | `https://dns.adguard-dns.com/dns-query` |
+| Mullvad (sans filtrage) | `194.242.2.2` | `2a07:e340::2` | `https://dns.mullvad.net/dns-query` |
+
+::: {.callout-tip}
+## Variantes utiles
+
+Quad9 sans blocage : `9.9.9.10 / 149.112.112.10` et `https://dns10.quad9.net/dns-query`. Cloudflare avec blocage malwares : `1.1.1.2 / 1.0.0.2` et `https://security.cloudflare-dns.com/dns-query`. Mullvad avec filtres : `adblock.dns.mullvad.net (194.242.2.3)`, `base.dns.mullvad.net (194.242.2.4)`, `family.dns.mullvad.net (194.242.2.6)`.
+:::
+
+## 1. Windows 11 (méthode recommandée)
+
+Windows 11 gère le chiffrement DoH nativement depuis la version 22H2. Utilisez cette méthode. Pour Windows 10, voir la variante plus bas.
+
+1. Ouvrez **Paramètres** (touche Windows + I) puis **Réseau et Internet**.
+2. Cliquez sur **Wi-Fi** ou **Ethernet** selon votre connexion, puis sur l'icône **i** ou sur votre réseau connecté.
+3. Descendez à **Attribution du serveur DNS** et cliquez sur **Modifier**.
+4. Passez de **Automatique (DHCP)** à **Manuel**.
+5. Activez **IPv4**.
+6. Dans **DNS préféré**, saisissez `9.9.9.9` (ou `1.1.1.1` si vous avez choisi Cloudflare). Dans **DNS alternatif**, saisissez `149.112.112.112` (ou `1.0.0.1`).
+7. Juste en dessous, réglez **DNS sur HTTPS** sur **Automatique** ou **Manuel (modèle automatique)**. Si vous choisissez Manuel, laissez le modèle proposé.
+8. Si votre système demande l'IPv6, activez **IPv6** et saisissez `2620:fe::fe` et `2620:fe::9` (Quad9) ou `2606:4700:4700::1111` et `2606:4700:4700::1001` (Cloudflare).
+9. Validez par **Enregistrer**. Pas besoin de redémarrer.
+
+::: {.callout-note}
+## Variante Windows 10 / Panneau de configuration
+
+Panneau de configuration puis Réseau et Internet puis Centre Réseau et partage puis Modifier les paramètres de la carte puis clic droit sur votre connexion puis Propriétés puis double-clic sur Protocole Internet version 4 (TCP/IPv4) puis cochez Utiliser l'adresse de serveur DNS suivante et saisissez les deux IP puis OK.
+:::
+
+## 2. macOS (Ventura, Sonoma, Sequoia)
+
+1. Ouvrez le menu Pomme puis **Réglages Système**.
+2. Allez dans **Réseau** dans la colonne de gauche.
+3. Sélectionnez **Wi-Fi** (ou **Ethernet** si vous êtes en câble) puis cliquez sur **Détails** à côté de votre réseau connecté.
+4. Onglet **DNS** dans la colonne de gauche.
+5. Supprimez les anciens serveurs avec le bouton **-** s'il y en a, puis cliquez sur **+** et ajoutez `9.9.9.9` puis de nouveau **+** et ajoutez `149.112.112.112`.
+6. Pour l'IPv6, ajoutez de la même façon `2620:fe::fe` et `2620:fe::9` si le champ existe.
+7. Cliquez sur **OK** puis fermez la fenêtre. Le changement est immédiat.
+
+Note : macOS ne propose pas de DoH natif dans les Réglages. Pour du DNS chiffré au niveau système, passez par le navigateur (section suivante) ou installez un profil DoH. Le changement manuel ci-dessus reste déjà très efficace.
+
+## 3. Android et iPhone
+
+### Android 9 et plus (DNS privé chiffré)
+
+1. Paramètres puis Réseau et Internet puis **DNS privé**.
+2. Choisissez **Nom d'hôte du fournisseur DNS privé**.
+3. Saisissez `dns.quad9.net` (Quad9) ou `one.one.one.one` (Cloudflare) ou `dns.adguard-dns.com` (AdGuard).
+4. Validez. Si vous voyez "Impossible de se connecter", vérifiez l'orthographe, passez en Automatique et réessayez.
+
+### iPhone / iPad
+
+1. Réglages puis Wi-Fi puis appuyez sur le **i** à côté de votre réseau.
+2. Descendez à **Configurer le DNS** puis passez en **Manuel**.
+3. Supprimez les anciens serveurs, ajoutez `9.9.9.9` et `149.112.112.112`.
+4. Pour du DoH chiffré persistant sur iOS, installez l'application officielle 1.1.1.1 ou Quad9 via un profil de configuration.
+
+## 4. Navigateurs (sans toucher au système)
+
+Utile si vous ne pouvez pas modifier le système (ordinateur professionnel) ou pour tester rapidement. Attention : le navigateur utilisera alors son DNS, même si le système en a un autre.
+
+### Firefox
+
+1. Menu trois traits puis **Paramètres** puis **Vie privée et sécurité**.
+2. Descendez tout en bas à **Activer le DNS via HTTPS**.
+3. Cochez **Protection maximale** puis choisissez **Quad9** ou **Cloudflare** dans la liste, ou choisissez **Personnalisé** et collez `https://dns.quad9.net/dns-query` ou `https://dns.adguard-dns.com/dns-query`.
+4. Fermez l'onglet, c'est actif.
+
+### Chrome / Edge / Brave (tous basés sur Chromium)
+
+1. Paramètres puis **Confidentialité et sécurité** puis **Sécurité**.
+2. Activez **Utiliser un DNS sécurisé**.
+3. Choisissez **Avec : Personnalisé** et collez `https://dns.quad9.net/dns-query` (ou `https://cloudflare-dns.com/dns-query`).
+4. Sur Brave, le chemin est : Paramètres puis Confidentialité et sécurité puis Sécurité puis Utiliser un DNS sécurisé.

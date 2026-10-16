@@ -1,0 +1,151 @@
+/*-- scss:defaults --*/
+$primary: #2d6a4f;
+$secondary: #5d6e60;
+$success: #2d6a4f;
+$body-bg: #f5f9f5;
+$body-color: #1a2420;
+$navbar-bg: #1b4332;
+$link-color: #1b4332;
+// Base commune clair/sombre pour éviter tout décalage
+$font-family-sans-serif: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", sans-serif;
+$font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+$navbar-padding-y: 0.5rem;
+$navbar-brand-font-size: 1.25rem;
+$nav-link-font-size: 0.95rem;
+
+/*-- scss:rules --*/
+
+// Socle identique dans les deux modes
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+// Navbar vert forêt — dimensions fixes identiques clair/sombre
+.navbar {
+  background-color: #1b4332;
+  border-bottom: 2px solid #1b4332;
+  min-height: 56px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+}
+
+// Select thème — taille fixe pour ne pas agrandir la barre
+#fflorian-theme-select {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.2;
+}
+
+// Cartes accueil
+.guide-card {
+  background: #fff;
+  border: 1px solid #c8d8c8;
+  border-left: 4px solid #2d6a4f;
+  border-radius: 10px;
+  padding: 1.4rem 1.5rem;
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(27, 67, 50, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(27, 67, 50, 0.12);
+  border-left-color: #1b4332;
+}
+
+.guide-card h3 {
+  margin-top: 0;
+  color: #1b4332;
+  font-size: 1.2rem;
+}
+
+.guide-card p {
+  color: #5d6e60;
+  font-size: 0.95rem;
+}
+
+.guide-card a.card-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: #1b4332;
+  border-bottom: 2px solid #2d6a4f;
+  text-decoration: none;
+}
+
+// Boutons
+.btn-forest {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  background: #1b4332;
+  color: #fff !important;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none !important;
+  border: 1px solid #1b4332;
+  margin: 0.25rem;
+}
+
+.btn-forest:hover {
+  background: #fff;
+  color: #1b4332 !important;
+}
+
+.btn-forest-secondary {
+  background: #fff;
+  color: #1b4332 !important;
+}
+
+.btn-forest-secondary:hover {
+  background: #1b4332;
+  color: #fff !important;
+}
+
+// Cartes sites streaming
+.site-card {
+  border: 1px solid #c8d8c8;
+  border-left: 4px solid #2d6a4f;
+  border-radius: 10px;
+  padding: 1.3rem 1.4rem;
+  margin: 1.4rem 0;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(27, 67, 50, 0.08);
+}
+
+.site-card h3 {
+  margin-top: 0;
+  color: #1b4332;
+}
+
+// Tableaux plus lisibles
+table {
+  font-size: 0.88rem;
+}
+
+// Contenu article
+main.content {
+  background: transparent;
+}

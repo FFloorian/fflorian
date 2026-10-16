@@ -1,0 +1,69 @@
+<script>
+// Choix du thème : clair / sombre / auto (suit le navigateur)
+// Stocké dans localStorage sous 'fflorian-theme'
+(function() {
+  const STORAGE_KEY = 'fflorian-theme';
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  function getPreference() {
+    try { return window.localStorage.getItem(STORAGE_KEY) || 'auto'; }
+    catch (e) { return 'auto'; }
+  }
+  function isDarkDesired(pref) {
+    if (pref === 'dark') return true;
+    if (pref === 'light') return false;
+    return mediaQuery.matches;
+  }
+  function applyTheme(isDark) {
+    const alternates = document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    const primaries = document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+    alternates.forEach((el) => {
+      el.rel = isDark ? 'stylesheet' : 'disabled-stylesheet';
+      if (el.id === 'quarto-bootstrap' && isDark) {
+        document.body.classList.add('quarto-dark');
+        document.body.classList.remove('quarto-light');
+      }
+    });
+    if (!isDark) {
+      primaries.forEach((el) => { if (el.rel !== 'stylesheet') el.rel = 'stylesheet'; });
+      document.body.classList.add('quarto-light');
+      document.body.classList.remove('quarto-dark');
+    }
+    try { window.localStorage.setItem('quarto-color-scheme', isDark ? 'alternate' : 'default'); } catch (e) {}
+    document.querySelectorAll('.quarto-color-scheme-toggle').forEach((t) => {
+      t.classList.toggle('alternate', isDark);
+    });
+    const sel = document.getElementById('fflorian-theme-select');
+    if (sel && sel.value !== getPreference()) sel.value = getPreference();
+  }
+  function applyPreference() { applyTheme(isDarkDesired(getPreference())); }
+  function initUI() {
+    const nativeToggle = document.querySelector('a.quarto-color-scheme-toggle');
+    if (!nativeToggle || document.getElementById('fflorian-theme-select')) return;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'd-flex align-items-center ms-2';
+    wrapper.title = 'Thème : clair / sombre / auto';
+    const select = document.createElement('select');
+    select.id = 'fflorian-theme-select';
+    select.className = 'form-select form-select-sm';
+    select.setAttribute('aria-label', 'Choisir le thème');
+    select.style.width = 'auto';
+    [['auto','Auto'],['light','Clair'],['dark','Sombre']].forEach(([v, label]) => {
+      const o = document.createElement('option');
+      o.value = v; o.textContent = label;
+      select.appendChild(o);
+    });
+    select.value = getPreference();
+    select.addEventListener('change', () => {
+      try { window.localStorage.setItem(STORAGE_KEY, select.value); } catch (e) {}
+      applyPreference();
+    });
+    nativeToggle.replaceWith(wrapper);
+    wrapper.appendChild(select);
+  }
+  applyPreference();
+  document.addEventListener('DOMContentLoaded', () => { initUI(); applyPreference(); });
+  if (mediaQuery.addEventListener) {
+    mediaQuery.addEventListener('change', () => { if (getPreference() === 'auto') applyPreference(); });
+  }
+})();
+</script>

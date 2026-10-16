@@ -1,0 +1,50 @@
+---
+title: "Sites Streamings"
+description: "Les meilleurs sites pour films et séries en français, avec conseils bloqueur de pub et DNS."
+date: 2025-04-22
+date-modified: 2026-10-16
+categories: [streaming, guides]
+lang: fr
+toc: true
+---
+
+## Prérequis
+
+Deux réglages évitent 90% des problèmes : un bloqueur contre les popups et des DNS alternatifs contre les blocages FAI. Installez **uBlock Origin** et suivez le guide DNS si un site est inaccessible.
+
+::: {.text-center}
+<a class="btn-forest" href="https://ublockorigin.com/" target="_blank" rel="noopener">uBlock Origin</a>
+<a class="btn-forest btn-forest-secondary" href="guide-dns.qmd">Guide DNS</a>
+:::
+
+::: {.site-card}
+### Tirexo
+
+Tirexo, ainsi que ses clones comme Wawacity et Zone Annuaire, partagent les mêmes fournisseurs de contenu avec quelques variations d'interface. Bien que les liens soient parfois morts pour les films moins récents, cette plateforme propose régulièrement des contenus en très haute qualité, y compris en 4K.
+
+::: {.callout-warning}
+## Attention aux pièges
+
+Certains boutons "Télécharger" sont en réalité des publicités frauduleuses non filtrées par les bloqueurs. Aucun compte ni paiement n'est nécessaire pour accéder au contenu.
+:::
+
+::: {.text-center}
+<a class="btn-forest" href="https://www.tirexo.live/" target="_blank" rel="noopener">Accéder à Tirexo</a>
+:::
+:::
+
+::: {.site-card}
+### French Stream
+
+Bien que la qualité vidéo ne soit pas toujours optimale, ce site se distingue par sa fiabilité et son catalogue extrêmement complet. Si un contenu est difficile à trouver ailleurs, vous avez de fortes chances de le découvrir sur cette plateforme.
+
+::: {.text-center}
+<a class="btn-forest" href="https://fstream.info/" target="_blank" rel="noopener">Accéder à French Stream</a>
+:::
+:::
+
+::: {.callout-note}
+## Note importante
+
+L'utilisation de ces sites peut être soumise à des restrictions légales selon votre pays de résidence. Nous vous recommandons de consulter les lois applicables dans votre juridiction avant d'utiliser ces services.
+:::

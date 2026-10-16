@@ -1,0 +1,43 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "fflorian.fr"
+  favicon: logo.png
+  description: "FFlorian — Guides simples et utiles : streaming et DNS. Un site clair, sans pub."
+  navbar:
+    left:
+      - href: index.qmd
+        text: Accueil
+      - href: articles/guide-streaming.qmd
+        text: Streaming
+      - href: articles/guide-dns.qmd
+        text: DNS
+    right:
+      - href: https://twitter.com/fflorianfcm
+        text: Twitter
+      - href: https://github.com/FFloorian/fflorian
+        icon: github
+        aria-label: GitHub
+  page-footer:
+    left: |
+      Site open source : [Voir sur GitHub](https://github.com/FFloorian/fflorian). Fait avec [Quarto](https://quarto.org/). Aucune donnée personnelle collectée. Hébergé sur Netlify. Aucune publicité.
+    right: |
+      © 2025 FFlorian. Tous droits réservés.
+
+format:
+  html:
+    theme:
+      light: [flatly, custom.scss]
+      dark: [darkly, custom-dark.scss]
+    css: styles.css
+    include-after-body: after-body.html
+    toc: true
+    toc-depth: 3
+    link-external-icon: true
+    link-external-newwindow: true
+    lang: fr
+
+execute:
+  freeze: auto
