@@ -15,7 +15,7 @@ website:
       - href: articles/guide-dns.qmd
         text: DNS
     right:
-      - href: https://twitter.com/fflorianfcm
+      - href: https://twitter.com/ffloorian
         text: Twitter
       - href: https://github.com/FFloorian/fflorian
         icon: github
