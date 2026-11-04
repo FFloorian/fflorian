@@ -13,8 +13,8 @@ toc: true
 Deux réglages évitent 90% des problèmes : un bloqueur contre les popups et des DNS alternatifs contre les blocages FAI. Installez **uBlock Origin** et suivez le guide DNS si un site est inaccessible.
 
 ::: {.text-center}
-<a class="btn-forest" href="https://ublockorigin.com/" target="_blank" rel="noopener">uBlock Origin</a>
-<a class="btn-forest btn-forest-secondary" href="guide-dns.qmd">Guide DNS</a>
+<a class="btn-neutral" href="https://ublockorigin.com/" target="_blank" rel="noopener">uBlock Origin</a>
+<a class="btn-neutral btn-neutral-secondary" href="guide-dns.qmd">Guide DNS</a>
 :::
 
 ::: {.site-card}
@@ -29,7 +29,7 @@ Certains boutons "Télécharger" sont en réalité des publicités frauduleuses 
 :::
 
 ::: {.text-center}
-<a class="btn-forest" href="https://www.tirexo.live/" target="_blank" rel="noopener">Accéder à Tirexo</a>
+<a class="btn-neutral" href="https://www.tirexo.live/" target="_blank" rel="noopener">Accéder à Tirexo</a>
 :::
 :::
 
@@ -39,7 +39,7 @@ Certains boutons "Télécharger" sont en réalité des publicités frauduleuses 
 Bien que la qualité vidéo ne soit pas toujours optimale, ce site se distingue par sa fiabilité et son catalogue extrêmement complet. Si un contenu est difficile à trouver ailleurs, vous avez de fortes chances de le découvrir sur cette plateforme.
 
 ::: {.text-center}
-<a class="btn-forest" href="https://fstream.info/" target="_blank" rel="noopener">Accéder à French Stream</a>
+<a class="btn-neutral" href="https://fstream.info/" target="_blank" rel="noopener">Accéder à French Stream</a>
 :::
 :::
 
