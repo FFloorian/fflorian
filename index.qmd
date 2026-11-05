@@ -1,30 +1,50 @@
 ---
 page-layout: full
 toc: false
+anchor-sections: false
 ---
 
-::: {.grid .gap-3 .mt-4}
-::: {.g-col-12 .g-col-md-6}
-::: {.guide-card}
-### Sites Streamings
+::: {.home}
+
+::: {.section-head}
+## Guides
+
+<span>2 articles</span>
+:::
+
+::: {.guide-index}
+
+::: {.guide-row}
+::: {.guide-row-body}
+### [Sites Streamings](articles/guide-streaming.qmd)
 
 Les meilleurs sites pour films et séries en VF/VOSTFR — liens vérifiés, conseils bloqueur de pub et DNS.
 
-Mis à jour le 16 octobre 2026
-
-[ Lire l'article ](articles/guide-streaming.qmd){.card-link}
+::: {.guide-row-meta}
+<span class="tag">Streaming</span>
+<span>Mis à jour le 4 novembre 2026</span>
 :::
 :::
 
-::: {.g-col-12 .g-col-md-6}
-::: {.guide-card}
-### Guide DNS
+<span class="guide-row-arrow" aria-hidden="true">→</span>
+:::
+
+::: {.guide-row}
+::: {.guide-row-body}
+### [Guide DNS](articles/guide-dns.qmd)
 
 Changez vos DNS en 2 minutes sur Windows, macOS et navigateurs — plus de vie privée et contournement des blocages FAI.
 
-Mis à jour le 27 août 2026
+::: {.guide-row-meta}
+<span class="tag">DNS</span>
+<span>Vie privée</span>
+<span>Mis à jour le 27 août 2026</span>
+:::
+:::
 
-[ Lire l'article ](articles/guide-dns.qmd){.card-link}
+<span class="guide-row-arrow" aria-hidden="true">→</span>
 :::
+
 :::
+
 :::

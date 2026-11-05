@@ -2,7 +2,7 @@
 title: "Sites Streamings"
 description: "Les meilleurs sites pour films et séries en français, avec conseils bloqueur de pub et DNS."
 date: 2025-04-22
-date-modified: 2026-10-16
+date-modified: 2026-11-04
 categories: [streaming, guides]
 lang: fr
 toc: true
@@ -12,7 +12,7 @@ toc: true
 
 Deux réglages évitent 90% des problèmes : un bloqueur contre les popups et des DNS alternatifs contre les blocages FAI. Installez **uBlock Origin** et suivez le guide DNS si un site est inaccessible.
 
-::: {.text-center}
+::: {.actions}
 <a class="btn-neutral" href="https://ublockorigin.com/" target="_blank" rel="noopener">uBlock Origin</a>
 <a class="btn-neutral btn-neutral-secondary" href="guide-dns.qmd">Guide DNS</a>
 :::
@@ -28,8 +28,8 @@ Tirexo, ainsi que ses clones comme Wawacity et Zone Annuaire, partagent les mêm
 Certains boutons "Télécharger" sont en réalité des publicités frauduleuses non filtrées par les bloqueurs. Aucun compte ni paiement n'est nécessaire pour accéder au contenu.
 :::
 
-::: {.text-center}
-<a class="btn-neutral" href="https://www.tirexo.live/" target="_blank" rel="noopener">Accéder à Tirexo</a>
+::: {.actions}
+<a class="btn-neutral" href="https://www.tirexo.wine/" target="_blank" rel="noopener">Accéder à Tirexo</a>
 :::
 :::
 
@@ -38,7 +38,7 @@ Certains boutons "Télécharger" sont en réalité des publicités frauduleuses 
 
 Bien que la qualité vidéo ne soit pas toujours optimale, ce site se distingue par sa fiabilité et son catalogue extrêmement complet. Si un contenu est difficile à trouver ailleurs, vous avez de fortes chances de le découvrir sur cette plateforme.
 
-::: {.text-center}
+::: {.actions}
 <a class="btn-neutral" href="https://fstream.info/" target="_blank" rel="noopener">Accéder à French Stream</a>
 :::
 :::

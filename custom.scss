@@ -1,189 +1,53 @@
 /*-- scss:defaults --*/
-// Palette monochrome claire : noir, blanc et gris
-$primary: #212529;
-$secondary: #6c757d;
-$success: #495057;
-$info: #495057;
-$warning: #495057;
-$danger: #212529;
-$light: #f8f9fa;
-$dark: #212529;
-$body-bg: #fafafa;
-$body-color: #212529;
-$navbar-bg: #212529;
-$link-color: #212529;
-$link-hover-color: #000;
-$code-color: #495057;
-$mark-bg: #e9ecef;
-// Base commune clair/sombre pour éviter tout décalage
-$font-family-sans-serif: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", sans-serif;
-$font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+// Thème clair — les composants communs sont définis dans styles.css.
+// Palette : encre, papier chaud, gris, un seul accent brique.
+
+$primary: #161514;
+$secondary: #6b665f;
+$success: #3f5b45;
+$info: #3d4b5c;
+$warning: #8f2d1f;
+$danger: #8f2d1f;
+$light: #f7f5f0;
+$dark: #161514;
+$body-bg: #f7f5f0;
+$body-color: #161514;
+$navbar-bg: #161514;
+$link-color: #161514;
+$link-hover-color: #8f2d1f;
+$code-color: #161514;
+$mark-bg: #e8e3d8;
+$border-color: #d8d3c9;
+
+// Tout est droit : aucun arrondi dans l'interface.
+$border-radius: 0;
+$border-radius-sm: 0;
+$border-radius-lg: 0;
+$border-radius-xl: 0;
+$border-radius-xxl: 0;
+$btn-border-radius: 0;
+$btn-border-radius-sm: 0;
+$btn-border-radius-lg: 0;
+$input-border-radius: 0;
+$card-border-radius: 0;
+$nav-pills-border-radius: 0;
+$navbar-toggler-border-radius: 0;
+$accordion-border-radius: 0;
+$modal-content-border-radius: 0;
+$toast-border-radius: 0;
+$alert-border-radius: 0;
+$badge-border-radius: 0;
+
+// Typographie commune aux deux modes.
+$font-family-sans-serif: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: "Cascadia Mono", ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
 $font-size-base: 1rem;
-$line-height-base: 1.6;
-$navbar-padding-y: 0.5rem;
-$navbar-brand-font-size: 1.25rem;
-$nav-link-font-size: 0.95rem;
+$line-height-base: 1.65;
+
+// Ni ombre ni dégradé.
+$enable-shadows: false;
+$enable-gradients: false;
 
 /*-- scss:rules --*/
-
-// Socle identique dans les deux modes
-body {
-  font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-// Navbar anthracite — dimensions fixes identiques clair/sombre
-.navbar {
-  background-color: #212529;
-  border-bottom: 1px solid #000;
-  min-height: 56px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.navbar-brand,
-.navbar-nav .nav-link {
-  font-weight: 600;
-  font-size: 0.95rem;
-  line-height: 1.2;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-  color: #f8f9fa;
-}
-
-.navbar-brand {
-  font-size: 1.25rem;
-}
-
-.navbar-brand:hover,
-.navbar-brand:focus,
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-  color: #ced4da;
-}
-
-// Select thème — taille fixe pour ne pas agrandir la barre
-#fflorian-theme-select {
-  font-size: 0.85rem;
-  padding: 0.25rem 0.5rem;
-  line-height: 1.2;
-}
-
-// Cartes accueil
-.guide-card {
-  background: #fff;
-  border: 1px solid #dee2e6;
-  border-left: 3px solid #212529;
-  border-radius: 8px;
-  padding: 1.4rem 1.5rem;
-  height: 100%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.guide-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  border-left-color: #000;
-}
-
-.guide-card h3 {
-  margin-top: 0;
-  color: #212529;
-  font-size: 1.2rem;
-}
-
-.guide-card p {
-  color: #6c757d;
-  font-size: 0.95rem;
-}
-
-.guide-card a.card-link {
-  display: inline-block;
-  margin-top: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-  color: #212529;
-  border-bottom: 1px solid #212529;
-  text-decoration: none;
-}
-
-.guide-card a.card-link:hover {
-  color: #000;
-  border-bottom-color: #000;
-}
-
-// Boutons
-.btn-neutral {
-  display: inline-block;
-  padding: 0.55rem 1.1rem;
-  background: #212529;
-  color: #fff !important;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  text-decoration: none !important;
-  border: 1px solid #212529;
-  margin: 0.25rem;
-}
-
-.btn-neutral:hover {
-  background: #fff;
-  color: #212529 !important;
-}
-
-.btn-neutral-secondary {
-  background: #fff;
-  color: #212529 !important;
-}
-
-.btn-neutral-secondary:hover {
-  background: #212529;
-  color: #fff !important;
-}
-
-// Cartes sites streaming
-.site-card {
-  border: 1px solid #dee2e6;
-  border-left: 3px solid #212529;
-  border-radius: 8px;
-  padding: 1.3rem 1.4rem;
-  margin: 1.4rem 0;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.site-card h3 {
-  margin-top: 0;
-  color: #212529;
-}
-
-// Encarts en niveaux de gris
-div.callout.callout-style-default > .callout-header {
-  background-color: #f1f3f5;
-}
-
-div.callout.callout-style-default,
-div.callout.callout-style-simple {
-  border-left-color: #adb5bd;
-}
-
-.callout .callout-icon::before {
-  filter: grayscale(1);
-  opacity: 0.8;
-}
-
-// Tableaux plus lisibles
-table {
-  font-size: 0.88rem;
-}
-
-// Contenu article
-main.content {
-  background: transparent;
-}
+// Les styles partagés (navbar, titres, cartes, tableaux, encarts)
+// sont centralisés dans styles.css pour rester identiques en clair et sombre.

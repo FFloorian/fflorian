@@ -37,7 +37,7 @@
   }
   function applyPreference() { applyTheme(isDarkDesired(getPreference())); }
   function initUI() {
-    const nativeToggle = document.querySelector('a.quarto-color-scheme-toggle');
+    const nativeToggle = document.querySelector('a.quarto-color-scheme-toggle, button.quarto-color-scheme-toggle');
     if (!nativeToggle || document.getElementById('fflorian-theme-select')) return;
     const wrapper = document.createElement('div');
     wrapper.className = 'd-flex align-items-center ms-2';
@@ -61,6 +61,19 @@
     wrapper.appendChild(select);
   }
   applyPreference();
+  // Rend toute la ligne cliquable, même si le pseudo-élément CSS n'est pas actif.
+  document.addEventListener('click', (event) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const row = event.target.closest ? event.target.closest('.guide-row') : null;
+    if (!row) return;
+    const guideLink = row.querySelector('.guide-row-body h3 a[href]:not(.anchorjs-link)');
+    if (!guideLink) return;
+    const clickedLink = event.target.closest('a');
+    if (clickedLink && clickedLink !== guideLink && !clickedLink.classList.contains('anchorjs-link')) return;
+    if (window.getSelection && String(window.getSelection()).length > 0) return;
+    event.preventDefault();
+    window.location.href = guideLink.href;
+  });
   document.addEventListener('DOMContentLoaded', () => { initUI(); applyPreference(); });
   if (mediaQuery.addEventListener) {
     mediaQuery.addEventListener('change', () => { if (getPreference() === 'auto') applyPreference(); });

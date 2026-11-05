@@ -22,9 +22,9 @@ website:
         aria-label: GitHub
   page-footer:
     left: |
-      Site open source : [Voir sur GitHub](https://github.com/FFloorian/fflorian). Fait avec [Quarto](https://quarto.org/). Aucune donnée personnelle collectée. Hébergé sur Netlify. Aucune publicité.
+      © 2026 FFlorian.
     right: |
-      © 2025 FFlorian. Tous droits réservés.
+      [Code source](https://github.com/FFloorian/fflorian) · [Quarto](https://quarto.org/) · Netlify · Aucune donnée collectée
 
 format:
   html:
@@ -35,9 +35,15 @@ format:
     include-after-body: after-body.html
     toc: true
     toc-depth: 3
-    link-external-icon: true
+    toc-title: "Sommaire"
+    link-external-icon: false
     link-external-newwindow: true
     lang: fr
+    grid:
+      sidebar-width: 220px
+      body-width: 780px
+      margin-width: 280px
+      gutter-width: 2rem
 
 execute:
   freeze: auto
